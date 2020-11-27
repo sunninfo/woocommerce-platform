@@ -7,5 +7,5 @@
        -nodemon        -done
 3 create express server server -create a server.js file     -done
 4 create home page useing html and css -
-5 ro
-
+5 git setup and first commit -done
+6 install laravelmix -
