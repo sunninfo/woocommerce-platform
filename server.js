@@ -1,6 +1,6 @@
 const express = require('express')
 //set exprss as a app
-const app = express()
+const app = express()  //app is a intence of express
 
 const ejs = require('ejs')
 const path = require('path')
@@ -21,22 +21,4 @@ app.set('views',path.join(__dirname,'/resources/views'))
 //express ko btana hai konsa template engine use karenge
 app.set('view engine', 'ejs')
 
-app.get('/', (req, res) => {
-    res.render('home');
-
-})
-app.get('/cart', (req, res) => {
-    res.render('customers/cart');
-
-})
-app.get('/login',(req,res) =>{
-    res.render('auth/login')
-
-});
-app.get('/register',(req,res) =>{
-    res.render('auth/register')
-});
-
-app.listen(3000, () => {
-    console.log('listening port no 3000')
-});
+require('./routes/web')(app)

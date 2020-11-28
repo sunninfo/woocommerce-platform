@@ -8,4 +8,19 @@
 3 create express server server -create a server.js file     -done
 4 create home page useing html and css -
 5 git setup and first commit -done
-6 install laravelmix -
+6 install laravelmix -done
+     -setup js and scss -done
+7 install tailwind css -done
+8 create home page using html and css -done
+8 create cart page -done
+     -order summury section -done
+     -empty cart section -done
+     -move routes to routes files -done
+     -create dedicated  controlers -done
+9 add cart functionality
+     -connect to mongo db
+     -use connect-mongo for session db
+          -dependancies
+              -mongoose, express-session, connect-mongo, dotenv
+     -exios to send ajax request
+     -install notification library npm i noty 
