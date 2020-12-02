@@ -255,51 +255,57 @@
   }
 }
 
-.noty_theme__mint.noty_bar {
+.noty_theme__metroui.noty_bar {
   margin: 4px 0;
   overflow: hidden;
-  border-radius: 2px;
   position: relative;
+  box-shadow: rgba(0, 0, 0, 0.298039) 0 0 5px 0;
 }
 
-.noty_theme__mint.noty_bar .noty_body {
-  padding: 10px;
+.noty_theme__metroui.noty_bar .noty_progressbar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background-color: #000;
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+}
+
+.noty_theme__metroui.noty_bar .noty_body {
+  padding: 1.25em;
   font-size: 14px;
 }
 
-.noty_theme__mint.noty_bar .noty_buttons {
-  padding: 10px;
+.noty_theme__metroui.noty_bar .noty_buttons {
+  padding: 0 10px 0.5em 10px;
 }
 
-.noty_theme__mint.noty_type__alert,
-.noty_theme__mint.noty_type__notification {
+.noty_theme__metroui.noty_type__alert,
+.noty_theme__metroui.noty_type__notification {
   background-color: #fff;
-  border-bottom: 1px solid #D1D1D1;
-  color: #2F2F2F;
+  color: #1d1d1d;
 }
 
-.noty_theme__mint.noty_type__warning {
-  background-color: #FFAE42;
-  border-bottom: 1px solid #E89F3C;
+.noty_theme__metroui.noty_type__warning {
+  background-color: #FA6800;
   color: #fff;
 }
 
-.noty_theme__mint.noty_type__error {
-  background-color: #DE636F;
-  border-bottom: 1px solid #CA5A65;
-  color: #fff;
+.noty_theme__metroui.noty_type__error {
+  background-color: #CE352C;
+  color: #FFF;
 }
 
-.noty_theme__mint.noty_type__info,
-.noty_theme__mint.noty_type__information {
-  background-color: #7F7EFF;
-  border-bottom: 1px solid #7473E8;
-  color: #fff;
+.noty_theme__metroui.noty_type__info,
+.noty_theme__metroui.noty_type__information {
+  background-color: #1BA1E2;
+  color: #FFF;
 }
 
-.noty_theme__mint.noty_type__success {
-  background-color: #AFC765;
-  border-bottom: 1px solid #A0B55C;
+.noty_theme__metroui.noty_type__success {
+  background-color: #60A917;
   color: #fff;
 }
 
@@ -350,6 +356,10 @@ section.hero {
   color: #fff;
 }
 
+.add-to-cart:focus {
+  outline: none;
+}
+
 .btn-primary {
   background: #FE5F1E;
   transition: all 0.3s ease-in-out;
@@ -381,5 +391,11 @@ section.login a,
 section.login a:hover,
 .register a:hover {
   color: #b23301;
+}
+
+.noty_theme__metroui {
+  border-radius: 50px !important;
+  padding-left: 8px !important;
+  font-size: 12px !important;
 }
 

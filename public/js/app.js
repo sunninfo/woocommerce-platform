@@ -6895,6 +6895,9 @@ var _require = __webpack_require__(/*! ../../app/models/menu */ "./app/models/me
 
 
 
+
+var Noty = __webpack_require__(/*! noty */ "./node_modules/noty/lib/noty.js");
+
 var addToCart = document.querySelectorAll(".add-to-cart");
 var cartCounter = document.querySelector('#cartCounter'); //update the cart
 
@@ -6905,7 +6908,20 @@ function updateCart(pizza) {
     cartCounter.innerText = res.data.totalQty;
     new Noty({
       type: 'success',
+      layout: 'bottomRight',
+      theme: 'metroui',
+      timeout: 1000,
+      progressBar: false,
       text: 'Item added to cart'
+    }).show(); //server error handling
+  })["catch"](function (err) {
+    new Noty({
+      type: 'error',
+      layout: 'bottomRight',
+      theme: 'metroui',
+      timeout: 1000,
+      progressBar: false,
+      text: 'somthing went wrong!'
     }).show();
   });
 } //array type

@@ -20,9 +20,12 @@
 9 add cart functionality  -
   -fetch all pizza from db and show on home page  -done
   -create menu model and put dummy data   -done
-     -connect to mongo db
-     -use connect-mongo for session store
-          -dependancies
-              -mongoose, express-session, connect-mongo, dotenv
-     -exios to send ajax request
-     -install notification library npm i noty 
+     -connect to mongo db -done
+     -use connect-mongo for session store -done
+          -dependancies -done
+              -mongoose, express-session, connect-mongo, dotenv -done
+     -exios to send ajax request -done
+     -install notification library npm i noty  -done
+10 create login page with routes
+11 create register page with routes
+12 build register crud

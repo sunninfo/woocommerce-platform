@@ -3,6 +3,7 @@ const { update } = require("../../app/models/menu")
 import axios from 'axios'
 import noty from 'noty'
 
+const Noty = require('noty')
 let addToCart = document.querySelectorAll(".add-to-cart")
 let cartCounter = document.querySelector('#cartCounter')
 
@@ -17,7 +18,23 @@ function updateCart(pizza){
         
         new Noty({
             type: 'success',
+            layout: 'bottomRight',
+            theme: 'metroui',
+            timeout:1000,
+            progressBar: false,
             text: 'Item added to cart'
+
+        }).show();
+
+        //server error handling
+    }).catch(err =>{
+       new Noty({
+            type: 'error',
+            layout: 'bottomRight',
+            theme: 'metroui',
+            timeout:1000,
+            progressBar: false,
+            text: 'somthing went wrong!'
 
         }).show();
     })
