@@ -3,7 +3,7 @@ function authController() {
         login(req,res){
             res.render('auth/login')
         },
-//we haver to give "," to seperate two objects
+//we haver to give "," to separate two objects
         register(req,res){
             res.render('auth/register')
         }

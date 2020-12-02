@@ -17,9 +17,11 @@
      -empty cart section -done
      -move routes to routes files -done
      -create dedicated  controlers -done
-9 add cart functionality
+9 add cart functionality  -
+  -fetch all pizza from db and show on home page  -done
+  -create menu model and put dummy data   -done
      -connect to mongo db
-     -use connect-mongo for session db
+     -use connect-mongo for session store
           -dependancies
               -mongoose, express-session, connect-mongo, dotenv
      -exios to send ajax request

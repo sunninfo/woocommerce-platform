@@ -1,10 +1,16 @@
 @import './variables';
+@import '~noty/src/noty.scss';
+@import '~noty/src/themes/mint.scss';
 
 body{
 
     font-family: 'Lato', sans-serif;
     -webkit-font-smoothing: antialiased;
     color: $dark;
+}
+nav{
+    background: $secondary;
+    position: fixed;
 }
 nav li:last-child a{
     background: $primary;
