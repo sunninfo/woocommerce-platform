@@ -7,6 +7,8 @@ const authController = require("../app/http/controllers/authController")
 
 const cartController = require("../app/http/controllers/customers/cartController")
 
+const guest = require('../app/http/middlewares/guest')
+
 
 //we can also import using ES6 using below method
 
@@ -23,15 +25,21 @@ function initRoutes(app) {
     
     // })
 
-    app.get('/login',authController().login)
+    app.get('/login',guest, authController().login)
 
-    app.get('/register',authController().register)
+    app.post('/login',authController().postLogin)
+
+    app.get('/register',guest, authController().register)
+
+    app.post('/register',authController().postRegister)
+
+    app.post('/logout',authController().logout)
 
     
 
     app.get('/cart',cartController().index)
     
-    app.post('/update-cart',cartController().update)  //update-cart is url from app.ja
+    app.post('/update-cart',cartController().update)  //update-cart is url from app.js
     
     
     app.listen(3000, () => {

@@ -21,7 +21,7 @@ function cartController() {
 
             //checking if item does not exist in cart
 
-            if (cart.items[req.body._id]) {
+            if (!cart.items[req.body._id]) {
                 cart.items[req.body._id] = {
                     item: req.body,
                     qty: 1
@@ -31,11 +31,15 @@ function cartController() {
                 cart.totalPrice = cart.totalPrice + req.body.price
 
             } else {
-                cart.items[req.body._id] = cart.items[req.body._id] + 1
+                cart.items[req.body._id].qty = cart.items[req.body._id].qty + 1
                 cart.totalQty = cart.totalQty + 1
                 cart.totalPrice = cart.totalPrice + req.body.price
             }
             return res.json({ totalQty: req.session.cart.totalQty }) //finally adding all the data send it to client
+            
+            //for checking output on console
+
+            // return res.json({ data: "all ok" }) //finally adding all the data send it to client
 
         }
     }

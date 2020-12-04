@@ -26,6 +26,21 @@
               -mongoose, express-session, connect-mongo, dotenv -done
      -exios to send ajax request -done
      -install notification library npm i noty  -done
-10 create login page with routes
-11 create register page with routes
-12 build register crud
+10 create login page with routes  -done
+11 create register page with routes -done
+12 build register crud -done
+     -dependancies express-flash express-session dotenv
+     -stats code 
+13 build login using passport -done
+     -install dependancies passport passport-local express-session
+14 create order controller and link it in server.js
+15 create orders view with table for customer and admin 
+16 create orders with single page with status
+17 place order functionality
+18 show all my orders on customer order page
+19 show orders on admin orders page
+20 Order tracker
+   -dependancies moment
+21 Socket Connection
+22 Build project for deploymet
+23 deploy project on live server

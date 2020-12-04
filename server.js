@@ -9,9 +9,10 @@ const mongoose = require('mongoose')
 const session = require('express-session')
 const flash = require('express-flash')
 const MongoDbStore = require('connect-mongo')(session)
+const passport = require('passport')
 
 
-//database connection with server
+//database connection with server  start
 const url = 'mongodb://localhost/sem5project'
 
 mongoose.connect(url, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: true });
@@ -23,7 +24,9 @@ connection.once('open', () => {
 }).catch(err => {
     console.log("connection failed")
 });
-//database connection with server
+//database connection with server end
+
+
 
 //session store , we have to use "new" keyword when we are calling class or constructor 
 let mongoStore = new MongoDbStore({
@@ -45,22 +48,31 @@ app.use(session({
 }))
 //session config end
 
+//passport config start 
+const passportInit = require('./app/config/passport')
+passportInit(passport)
+app.use(passport.initialize())
+app.use(passport.session())
+
+//passport config end
 
 
-const PORT = process.env.PORT || 8000
+const PORT = process.env.PORT || 3300
 //know the server where is our assets
 
 
-//using flash as amiddleware
+//using flash as middleware
 app.use(flash())
 
 //assets
 app.use(express.static('public'))
 app.use(express.json())  //enableing json in express
+app.use(express.urlencoded({ extended: false }))
 
 //global middleware its a normal function
 app.use((req, res, next) => {
     res.locals.session = req.session
+    res.locals.user = req.user //we are getting logedin user from session sending it to layout.ejs
     next()
 
 })
