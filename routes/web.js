@@ -7,7 +7,18 @@ const authController = require("../app/http/controllers/authController")
 
 const cartController = require("../app/http/controllers/customers/cartController")
 
+const orderController = require('../app/http/controllers/customers/orderController')
+
+const AdminorderController = require('../app/http/controllers/admin/orderController')
+
+
+//Middlewares
+
 const guest = require('../app/http/middlewares/guest')
+
+const auth = require('../app/http/middlewares/auth')
+
+const admin = require("../app/http/middlewares/admin")
 
 
 //we can also import using ES6 using below method
@@ -33,6 +44,7 @@ function initRoutes(app) {
 
     app.post('/register',authController().postRegister)
 
+
     app.post('/logout',authController().logout)
 
     
@@ -40,6 +52,18 @@ function initRoutes(app) {
     app.get('/cart',cartController().index)
     
     app.post('/update-cart',cartController().update)  //update-cart is url from app.js
+
+
+    //customer routes
+
+    app.post('/orders',auth,orderController().store)
+
+    app.get('/customers/orders',auth, orderController().index)
+
+    //Admin routes
+
+    app.get('/admin/orders',admin, AdminorderController().index)
+
     
     
     app.listen(3000, () => {

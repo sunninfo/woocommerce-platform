@@ -32,13 +32,14 @@
      -dependancies express-flash express-session dotenv
      -stats code 
 13 build login using passport -done
-     -install dependancies passport passport-local express-session
-14 create order controller and link it in server.js
-15 create orders view with table for customer and admin 
-16 create orders with single page with status
-17 place order functionality
-18 show all my orders on customer order page
-19 show orders on admin orders page
+     -install dependancies passport passport-local express-session -done
+14 create order controller and link it in server.js -done
+15 create orders view with table for customer and admin  -done
+17 place order functionality -done
+18 show all my orders on customer order page -done
+19 show orders on admin orders page -done
+
+16 create orders with single page with status 
 20 Order tracker
    -dependancies moment
 21 Socket Connection

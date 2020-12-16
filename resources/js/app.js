@@ -2,6 +2,7 @@ const { update } = require("../../app/models/menu")
 
 import axios from 'axios'
 import noty from 'noty'
+import initAdmin from './admin'
 
 const Noty = require('noty')
 let addToCart = document.querySelectorAll(".add-to-cart")
@@ -62,3 +63,13 @@ addToCart.forEach((btn) => {
 
   })
 })
+
+
+// Remove alert message after X seconds
+const alertMsg = document.querySelector('#success-alert')
+if(alertMsg) {
+    setTimeout(() => {
+        alertMsg.remove()
+    }, 2000)
+}
+initAdmin()

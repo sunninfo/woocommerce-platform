@@ -399,3 +399,12 @@ section.login a:hover,
   font-size: 12px !important;
 }
 
+a.link {
+  color: #FE5F1E;
+}
+
+.h1-orders {
+  font-size: 1.125rem;
+  margin-top: 80px;
+}
+
