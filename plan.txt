@@ -38,7 +38,8 @@
 17 place order functionality -done
 18 show all my orders on customer order page -done
 19 show orders on admin orders page -done
-
+24 change order status -done
+ 
 16 create orders with single page with status 
 20 Order tracker
    -dependancies moment

@@ -20,10 +20,14 @@ function orderController() {
             })
 
             order.save().then(result => {
-                req.flash('success', 'Order Placed sucessfully')
-                delete req.session.cart //to empty the cart after order placed
-                return res.redirect('customers/orders')
-
+                Order.populate(result, { path: 'customerId' }, (err, placedOrder) => {
+                    req.flash('success', 'Order Placed sucessfully')
+                    delete req.session.cart //to empty the cart after order placed
+                    //Emit
+                    const eventEmitter = req.app.get('eventEmitter')
+                    eventEmitter.emit('orderPlaced', placedOrder)
+                    return res.redirect('customers/orders')
+                })
 
             }).catch(err => {
                 req.flash('error', 'Somthing went wrong')
@@ -33,15 +37,23 @@ function orderController() {
         },
         async index(req, res) {
             const orders = await Order.find({ customerId: req.user._id },
-            null,
-            {sort: {'createdAt': -1} })
+                null,
+                { sort: { 'createdAt': -1 } })
             res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0')
             res.render('customers/orders', { orders: orders, moment })
 
+        },
+        async show(req, res) {
+            const order = await Order.findById(req.params.id)
+            //Authorize user
+            if (req.user._id.toString() === order.customerId.toString()) { //we can't compare two objects whithout converting them into string
+                res.render('/customers/singleOrder', { order })
+            } else {
+                res.redirect('/')
+            }
         }
     }
 }
-
 
 
 module.exports = orderController
