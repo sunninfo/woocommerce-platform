@@ -47,7 +47,7 @@ function orderController() {
             const order = await Order.findById(req.params.id)
             //Authorize user
             if (req.user._id.toString() === order.customerId.toString()) { //we can't compare two objects whithout converting them into string
-                res.render('/customers/singleOrder', { order })
+                res.render('customers/singleOrder', { order })
             } else {
                 res.redirect('/')
             }

@@ -63,7 +63,7 @@ function initRoutes(app) {
 
     app.get('/customers/orders',auth, orderController().index)
 
-    app.get('/customers/orders:id',auth, orderController().show)
+    app.get('/customer/orders/:id',auth, orderController().show)
 
 
 
@@ -73,13 +73,6 @@ function initRoutes(app) {
 
     app.post('/admin/order/status',admin, statusController().update)
 
-
-
-    
-    
-    app.listen(3000, () => {
-        console.log('listening port no 3000')
-    })  
 }
 
 //importing module from web.js

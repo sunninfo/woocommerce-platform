@@ -14,9 +14,7 @@ const Emitter = require('events')
 
 
 //database connection with server  start
-const url = 'mongodb://localhost/sem5project'
-
-mongoose.connect(url, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: true });
+mongoose.connect(process.env.MONGO_CONNECTION_URL, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: true });
 
 const connection = mongoose.connection;
 
@@ -62,7 +60,7 @@ app.use(passport.session())
 //passport config end
 
 
-const PORT = process.env.PORT || 3300
+const PORT = process.env.PORT || 8000
 //know the server where is our assets
 
 
@@ -92,6 +90,9 @@ app.set('views', path.join(__dirname, '/resources/views'))
 app.set('view engine', 'ejs')
 
 require('./routes/web')(app)
+app.use((req,res) =>{
+    res.status(404).render('errors/404')
+})
 
 const server = app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`)
